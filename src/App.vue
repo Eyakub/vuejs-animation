@@ -1,8 +1,11 @@
 <template>
     <div style="margin-top: 200px;">
         <button class="btn btn-primary" @click="show = !show">Toggle</button>
-        <transition name="fade">
-            <p v-if="show">Hi there its me, Animation</p>
+        <transition 
+            enter-active-class="animated pulse slow"
+
+            leave-active-class="animated zoomOut slow">
+            <p v-if="show" style="width: 200px;">Hi there its me, Animation</p>
         </transition>
     </div>
 </template>
@@ -20,11 +23,7 @@ export default {
 </script>
 
 <style>
-.fade-enter, .fade-leave-to{
-    opacity: 0;
-}
-
-.fade-enter-active, .fade-leave-active{
-    transition: opacity 2s;
-}
+    .slow{
+        animation-duration: 3s;
+    }
 </style>
